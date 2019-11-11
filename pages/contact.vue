@@ -1,31 +1,41 @@
 <template>
-  <section class="homepage">
+  <section class="contact-page">
     <!-- Vue tag to add header component -->
     <header-prismic :menuLinks="menuLinks"/>
 
     <!-- Slices block component -->
     <slices-block :slices="slices"/>
 
-    <form name="contact" method="POST" data-netlify="true">
-        <p>
-            <label>Your Name: <input type="text" name="name" /></label>   
-        </p>
-        <p>
-            <label>Your Email: <input type="email" name="email" /></label>
-        </p>
-        <p>
-            <label>Your Role: <select name="role[]" multiple>
-            <option value="leader">Leader</option>
-            <option value="follower">Follower</option>
-            </select></label>
-        </p>
-        <p>
-            <label>Message: <textarea name="message"></textarea></label>
-        </p>
-        <p>
-            <button type="submit">Send</button>
-        </p>
-    </form>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <form name="contact" method="POST" data-netlify="true">
+                    <div class="form-group">
+                        <label for="name">Your Name: </label>
+                        <input type="text" name="name" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Name: </label>
+                        <input type="email" name="email" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="role">Your Role: </label>
+                        <select name="role[]" class="form-control" multiple>
+                            <option value="leader">Leader</option>
+                            <option value="follower">Follower</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message: </label>
+                        <textarea name="message" class="form-control"></textarea>
+                    </div>
+                    <p>
+                        <button type="submit">Send</button>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
   </section>
 </template>
 

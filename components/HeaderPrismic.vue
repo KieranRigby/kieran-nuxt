@@ -6,6 +6,12 @@
         <li v-for="menuLink in menuLinks" :key="menuLink.id">
           <prismic-link :field="menuLink.link">{{ $prismic.richTextAsPlain(menuLink.label) }}</prismic-link>
         </li>
+        <li>
+          <nuxt-link to="/services">Services</nuxt-link>
+        </li>
+        <li>
+          <nuxt-link to="/blog">Blog</nuxt-link>
+        </li>
       </ul>
     </nav>
   </header>

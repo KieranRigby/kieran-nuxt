@@ -7,7 +7,7 @@
     <!-- Slices block component -->
     <slices-block :slices="slices"/>
 
-    ertertert
+    I am the main services page
   </section>
 </template>
 

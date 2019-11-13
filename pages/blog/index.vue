@@ -164,6 +164,10 @@ export default {
   border-radius: 10px;
   color: white;
 
+  a {
+      color: white;
+  }
+
   p {
     margin: 10px 0px 10px 0px;
   }

@@ -7,7 +7,7 @@
       <div class="tags">
         Tags:<br>
         <div class="tag" v-for="(item, index) in post.data.tags_on_post" :key="'reference-item-' + index">
-          {{ item.tag.slug }}
+          {{ item.tag_on_post.slug }}
         </div>
       </div>
     </div>

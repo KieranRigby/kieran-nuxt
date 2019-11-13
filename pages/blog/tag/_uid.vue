@@ -35,9 +35,9 @@
               <p :data-id="item.id">{{ item.data.tag_name[0].text }}</p>
             </nuxt-link>
           </div>
+          </div>
         </div>
       </div>
-    </div>
   </section>
 </template>
 
@@ -72,16 +72,37 @@ export default {
       document = result.data
 
       // Query to get posts content to preview
-      const blogPosts = await api.query(
-        Prismic.Predicates.at("document.type", "post"),
-        { orderings : '[my.post.date desc]' }
-      )
-
-      // Query to get posts content to preview
       const allTags = await api.query(
         Prismic.Predicates.at("document.type", "tag"),
         { orderings : '[my.tag.date desc]' }
       )
+      let tagId
+
+      for (let i = 0; i < allTags.results.length; i++) {
+        if(allTags.results[i].slugs[0] == params.uid) {
+          tagId = allTags.results[i].id
+          console.log('Found matching tags: ' + allTags.results[i].slugs[0])
+        }
+      }
+
+      console.log(tagId)
+
+      // Query to get posts content to preview
+      /*const blogPosts = await api.query(
+        Prismic.Predicates.at('document.type', 'post'),
+        Prismic.Predicates.at("my.post.tags_on_post.tag_on_post", 'XclSkxEAACMABvBd'),
+        { orderings : '[my.post.date desc]' }
+      )*/
+
+      let blogPosts = []
+      await api.query([
+        Prismic.Predicates.at('document.type', 'post'),
+        Prismic.Predicates.at('my.post.tags_on_post.tag_on_post', tagId)
+      ]).then(function(response) {
+        // response is the response object, response.results holds the documents
+        console.log(response.results)
+        blogPosts = response.results
+      });
 
       // Query to get the menu content
       let menuContent = {}
@@ -90,12 +111,12 @@ export default {
 
       // Load the edit button
       if (process.client) window.prismic.setupEditButton()
-      console.log(document)
+      //console.log(document)
       return {
         // Post content
         document,
         documentId: result.id,
-        posts: blogPosts.results,
+        posts: blogPosts,
         image: document.image.url,
         allTags: allTags.results,
         tag: params.uid,
@@ -109,6 +130,7 @@ export default {
       }
     } catch (e) {
       // Returns error page
+      console.log(e.message);
       error({ statusCode: 404, message: 'Page not found' })
     }
   },
@@ -164,6 +186,10 @@ export default {
   background-color: #3a3a3a;
   border-radius: 10px;
   color: white;
+
+  a {
+      color: white;
+  }
 
   p {
     margin: 10px 0px 10px 0px;

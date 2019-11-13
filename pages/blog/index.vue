@@ -31,7 +31,7 @@
             <p>All</p>
           </nuxt-link>
           <div class="tag" v-for="(item, index) in allTags" :key="'reference-item-' + index">
-             <nuxt-link :to="'/blog/tag/' + item.slugs[0]">
+             <nuxt-link :to="'/blog/tag/' + item.slugs[0] + '/'">
               <p :data-id="item.id">{{ item.data.tag_name[0].text }}</p>
             </nuxt-link>
           </div>

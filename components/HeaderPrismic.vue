@@ -4,16 +4,16 @@
     <nav>
       <ul>
         <li v-for="menuLink in menuLinks" :key="menuLink.id">
-          <nuxt-link :to="'/' + menuLink.link.type + '/' + menuLink.link.uid">{{ $prismic.richTextAsPlain(menuLink.label) }}</nuxt-link>
+          <nuxt-link :to="'/' + menuLink.link.type + '/' + menuLink.link.uid + '/'">{{ $prismic.richTextAsPlain(menuLink.label) }}</nuxt-link>
         </li>
         <li>
-          <nuxt-link to="/services">Services</nuxt-link>
+          <nuxt-link to="/services/">Services</nuxt-link>
         </li>
         <li>
-          <nuxt-link to="/blog">Blog</nuxt-link>
+          <nuxt-link to="/blog/">Blog</nuxt-link>
         </li>
         <li>
-          <nuxt-link to="/contact">Contact</nuxt-link>
+          <nuxt-link to="/contact/">Contact</nuxt-link>
         </li>
       </ul>
     </nav>

@@ -100,7 +100,6 @@ export default {
         Prismic.Predicates.at('my.post.tags_on_post.tag_on_post', tagId)
       ]).then(function(response) {
         // response is the response object, response.results holds the documents
-        console.log(response.results)
         blogPosts = response.results
       });
 

@@ -1,5 +1,28 @@
 const pkg = require('./package')
+const Prismic = require('prismic-javascript')
+const prismicEndpoint = 'https://reckless.cdn.prismic.io/api/v2'
 const PrismicConfig = require('./prismic.config')
+
+const routes = () =>
+	Prismic.getApi(prismicEndpoint)
+		.then(api =>
+			api.query(Prismic.Predicates.at('document.type', 'page'), {
+				pageSize: 100,
+				orderings: '[my.layout.uid]',
+			}),
+		)
+		.then(res => {
+			if (res.total_pages > 1) {
+				console.warn('we have more than 100 pages, fix it');
+				process.exit(1);
+			}
+			return [
+				'/',
+				...res.results.map(page => `/page/${page.uid.replace(/_/g, '/')}/`),
+				'/blog/tag/development',
+				'/blog/tag/digital-marketing',
+			];
+		});
 
 module.exports = {
   mode: 'universal',
@@ -55,6 +78,10 @@ module.exports = {
   */
   modules: [
   ],
+
+  generate: {
+    routes,
+  },
 
   /*
   ** Build configuration

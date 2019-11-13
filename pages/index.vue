@@ -48,8 +48,7 @@ export default {
       let menuContent = {}
       const menu = await api.getSingle('menu')
       menuContent = menu.data
-
-      console.log(document.page_content)
+      
       // Load the edit button
       if (process.client) window.prismic.setupEditButton()
 

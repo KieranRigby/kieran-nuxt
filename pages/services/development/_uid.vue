@@ -46,7 +46,7 @@ export default {
 
       // Load the edit button
       if (process.client) window.prismic.setupEditButton()
-      console.log(document.body)
+      //console.log(document.body)
       return {
         // Post content
         //document,

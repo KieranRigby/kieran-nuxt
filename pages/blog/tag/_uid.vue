@@ -10,7 +10,7 @@
         {{ $prismic.richTextAsPlain(document.headline) }}
       </h1>
       <!-- Template for page description -->
-      <p class="blog-description">{{ $prismic.richTextAsPlain(document.description) }}</p>
+      <p class="blog-description">Tag: {{ tag }}</p>
 
       <div class="row">
         <div class="col-12 col-md-9">
@@ -98,6 +98,7 @@ export default {
         posts: blogPosts.results,
         image: document.image.url,
         allTags: allTags.results,
+        tag: params.uid,
 
         // Set slices as variable
         slices: document.body,

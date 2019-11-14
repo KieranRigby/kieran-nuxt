@@ -31,14 +31,15 @@ export default {
   methods: {
     // Function to get the first paragraph of text in a blog post and limit the displayed text at 300 characters
     getFirstParagraph (post) {
-      const textLimit = 300;
+      const textLimit = 100;
       const slices = post.data.body;
       let firstParagraph = '';
       let haveFirstParagraph = false;
       
       slices.map(function(slice) {
         if (!haveFirstParagraph && slice.slice_type == "text") {
-          slice.primary.text.forEach(function(block){
+          console.log(slice.primary.rich_text)
+          slice.primary.rich_text.forEach(function(block){
             if (block.type == "paragraph" && !haveFirstParagraph) {
               firstParagraph += block.text;
               haveFirstParagraph = true;

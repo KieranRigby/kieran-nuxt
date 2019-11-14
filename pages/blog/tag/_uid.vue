@@ -81,11 +81,8 @@ export default {
       for (let i = 0; i < allTags.results.length; i++) {
         if(allTags.results[i].slugs[0] == params.uid) {
           tagId = allTags.results[i].id
-          console.log('Found matching tags: ' + allTags.results[i].slugs[0])
         }
       }
-
-      console.log(tagId)
 
       // Query to get posts content to preview
       /*const blogPosts = await api.query(

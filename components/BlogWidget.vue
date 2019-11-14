@@ -38,7 +38,6 @@ export default {
       
       slices.map(function(slice) {
         if (!haveFirstParagraph && slice.slice_type == "text") {
-          console.log(slice.primary.rich_text)
           slice.primary.rich_text.forEach(function(block){
             if (block.type == "paragraph" && !haveFirstParagraph) {
               firstParagraph += block.text;

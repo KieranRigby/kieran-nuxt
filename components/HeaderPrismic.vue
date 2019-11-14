@@ -1,6 +1,6 @@
 <template>
   <header class="site-header">
-    <nuxt-link to="/" class="logo">Reckless</nuxt-link>
+    <img class="logo" width="200" src="../assets/img/reckless-full-logotype-2018-Copy.svg" alt="Reckless Agency">
     <nav>
       <ul>
         <li v-for="menuLink in menuLinks" :key="menuLink.id">
@@ -33,6 +33,10 @@ export default {
   padding: 20px 0;
   color: #484d52;
   font-weight: 700;
+
+  .logo {
+    padding: 10px;
+  }
   
   a {
     color: #484d52;

@@ -12,6 +12,7 @@
     "heroku-postbuild": "npm run build"
   },
   "dependencies": {
+    "@nuxtjs/pwa": "^3.0.0-beta.19",
     "cookies": "^0.7.3",
     "cross-env": "^5.2.1",
     "express": "^4.17.1",

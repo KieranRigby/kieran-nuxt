@@ -88,6 +88,7 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxtjs/pwa',
   ],
 
   generate: {

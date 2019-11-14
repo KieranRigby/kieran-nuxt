@@ -55,7 +55,7 @@ module.exports = {
     script: [
       { innerHTML: '{ window.prismic = { endpoint: "' + PrismicConfig.apiEndpoint + '"} }' },
       { src: '//static.cdn.prismic.io/prismic.min.js' },
-      { src: '//code.jquery.com/jquery-3.3.1.slim.min.js' },
+      { src: '//code.jquery.com/jquery-3.4.1.min.js' },
       { src: '//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js' },
       { src: '//stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js' }
     ],

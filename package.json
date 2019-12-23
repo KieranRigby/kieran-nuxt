@@ -19,7 +19,10 @@
     "nuxt": "^2.10.2",
     "prismic-dom": "^2.1.0",
     "prismic-javascript": "^2.1.1",
-    "prismic-vue": "git+https://github.com/prismicio/prismic-vue.git#nuxt"
+    "prismic-vue": "git+https://github.com/prismicio/prismic-vue.git#nuxt",
+    "vue": "^2.6.11",
+    "vue-server-renderer": "^2.6.11",
+    "vue-template-compiler": "^2.6.11"
   },
   "devDependencies": {
     "node-sass": "^4.13.0",

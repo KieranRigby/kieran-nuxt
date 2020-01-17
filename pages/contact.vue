@@ -3,19 +3,22 @@
     <!-- Vue tag to add header component -->
     <header-prismic :menuLinks="menuLinks"/>
 
+    
+    <contact-banner/>
+
     <!-- Slices block component -->
     <slices-block :slices="slices"/>
 
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <form name="contact" method="POST" data-netlify="true">
+                <form name="contact" action="https://local.reckless-api.com/contact-submit" method="POST">
                     <div class="form-group">
                         <label for="name">Your Name: </label>
                         <input type="text" name="name" class="form-control" />
                     </div>
                     <div class="form-group">
-                        <label for="email">Your Name: </label>
+                        <label for="email">Your Email: </label>
                         <input type="email" name="email" class="form-control" />
                     </div>
                     <div class="form-group">
@@ -43,15 +46,17 @@
 import Prismic from "prismic-javascript"
 import PrismicConfig from "~/prismic.config.js"
 // Imports for all components
+import ContactBanner from '~/components/ContactBanner.vue'
 import HeaderPrismic from '~/components/HeaderPrismic.vue'
 import HomepageBanner from '~/components/HomepageBanner.vue'
 import SlicesBlock from '~/components/SlicesBlock.vue'
 
 export default {
+  transition: 'page', // set our transition with nuxt.js
   name: 'Home',
   components: {
     HeaderPrismic,
-    HomepageBanner,
+    ContactBanner,
     SlicesBlock,
   },
   head () {
@@ -98,14 +103,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.page-enter-active,
-.page-leave-active {
-  transition-property: opacity;
-  transition-timing-function: ease-in-out;
-  transition-duration: 250ms;
-}
-.page-enter,
-.page-leave-to {
-  opacity: 0;
-}
+
 </style>

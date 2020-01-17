@@ -1,22 +1,26 @@
 <template>
   <header class="site-header">
-    <img class="logo" width="200" src="../assets/img/reckless-full-logotype-2018-Copy.svg" alt="Reckless Agency">
-    <nav>
-      <ul>
-        <li v-for="menuLink in menuLinks" :key="menuLink.id">
-          <nuxt-link :to="'/' + menuLink.link.type + '/' + menuLink.link.uid + '/'">{{ $prismic.richTextAsPlain(menuLink.label) }}</nuxt-link>
-        </li>
-        <li>
-          <nuxt-link to="/services/">Services</nuxt-link>
-        </li>
-        <li>
-          <nuxt-link to="/blog/">Blog</nuxt-link>
-        </li>
-        <li>
-          <nuxt-link to="/contact/">Contact</nuxt-link>
-        </li>
-      </ul>
-    </nav>
+    <div class="container">
+      <nuxt-link to="/">
+        <img class="logo" width="200" src="../assets/img/logo.png" alt="Reckless Agency">
+      </nuxt-link>
+      <nav>
+        <ul>
+          <li v-for="menuLink in menuLinks" :key="menuLink.id">
+            <nuxt-link :to="'/' + menuLink.link.type + '/' + menuLink.link.uid + '/'">{{ $prismic.richTextAsPlain(menuLink.label) }}</nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="/services/">Services</nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="/blog/">Blog</nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="/contact/">Contact</nuxt-link>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </header>
 </template>
 
@@ -48,10 +52,10 @@ export default {
 }
 
 .homepage .site-header {
-  color: #ffffff;
+  color: #333;
 
   a {
-    color: #ffffff;
+    color: #333;
   }
 
   nav a:hover {
